@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malki Nails | עיצוב ציפורניים</title>
+<meta name="description" content="חוויית טיפוח מקצועית ואסתטית לציפורניים מושלמות">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Great+Vibes&family=Varela+Round&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+/* הכתב המחובר באנגלית - נטען מקובץ מקומי כדי שתמיד יוצג נכון */
+@font-face{font-family:"Allura";src:url('fonts/Allura.ttf') format('truetype');font-display:swap}
+:root{
+  --bg:#F4F1EA; --paper:#FAF9F6; --ink:#4A3C33; --muted:#7E6A5D;
+  --rose:#BDA896; --rose-soft:#E2DDD4; --mauve:#A37E66; --sand:#E6DAC8; --gold:#A48D78; --gold-light:#CBB9A4;
+  --line:rgba(74,60,51,.14);
+  --script:"Allura","Great Vibes","Brush Script MT",cursive;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Varela Round","Assistant",Arial,sans-serif;
+  --script2:"Allura","Great Vibes","Brush Script MT",cursive;
+  --modern:"Jost","Varela Round","Assistant",Arial,sans-serif;
+  --greige1:#CDC3B3; --greige2:#BCB1A0; --greige3:#DDD3C5; --greige4:#AA9F8E;
+  --btn:#66523F; --btn-hover:#54412F;
+  --shadow:0 24px 70px rgba(74,60,51,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+::selection{background:var(--rose);color:#fff}
+:focus-visible{outline:2px solid var(--mauve);outline-offset:3px}
+.page{width:min(1180px,calc(100% - 70px));margin:auto}
+
+/* ---------- PHOTO SLOTS ---------- */
+/* כל מסגרת תמונה מציגה את התמונה שלך, ואם אין תמונה עדיין מוצג גוון ורוד */
+.ph{
+  width:100%;height:100%;border-radius:inherit;
+  background-image:var(--img,none),linear-gradient(145deg,var(--c1,#CDC3B3),var(--c2,#F4F1EA) 50%,var(--c3,#AA9F8E));
+  background-size:cover;background-position:var(--pos,center);background-repeat:no-repeat;
+}
+
+/* ---------- HEADER ---------- */
+header{min-height:92px;padding:8px 0;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:relative;z-index:30}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo-main{font-family:var(--script);font-size:44px;line-height:1.1;color:var(--ink);direction:ltr}
+.logo-sub{font-size:12px;color:var(--mauve);margin-top:4px}
+nav{display:flex;gap:28px;align-items:center}
+nav a{font-size:15px;position:relative;padding:7px 0}
+nav a:after{content:"";position:absolute;right:0;bottom:0;width:0;height:1.5px;background:var(--gold);transition:.3s}
+nav a:hover:after,nav a.active:after{width:100%}
+.top-cta{padding:11px 24px;background:var(--btn);color:#fff;border-radius:100px;border:1px solid var(--gold-light);box-shadow:0 8px 22px rgba(102,82,63,.26);transition:.3s}
+.top-cta:hover{transform:translateY(-2px);background:var(--btn-hover)}
+.menu{display:none;border:0;background:none;cursor:pointer;padding:8px}
+
+/* ---------- HERO ---------- */
+.hero-wrap{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(circle at 85% 18%,rgba(221,211,197,.7),transparent 46%),linear-gradient(180deg,var(--paper),var(--bg))}
+.bg-blob{position:absolute;z-index:0;pointer-events:none}
+.bg-marble{top:-90px;left:-110px;width:560px;height:360px;border-radius:0 0 58% 42% / 0 0 72% 52%;
+  background:
+    linear-gradient(118deg,transparent 38%,rgba(255,255,255,.6) 44%,transparent 50%),
+    linear-gradient(140deg,#E6DAC8,#F4F1EA 55%,#E6DAC8);opacity:.95}
+.bg-rose{bottom:-170px;left:-110px;width:300px;height:270px;border-radius:55% 45% 60% 40% / 50% 55% 45% 50%;background:linear-gradient(160deg,#BDA896,#A37E66);opacity:.88}
+.bg-cream{top:36%;right:-160px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,#E2DDD4 0,transparent 68%)}
+.swoosh{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.swoosh path,.swoosh circle{fill:none;vector-effect:non-scaling-stroke}
+
+.hero{position:relative;z-index:2;min-height:660px;display:grid;grid-template-columns:.92fr 1.08fr;gap:50px;align-items:center;padding:50px 0 70px;direction:ltr}
+.hero-copy{direction:rtl;text-align:right;display:flex;flex-direction:column;align-items:flex-start}
+.kicker{font-family:var(--modern);font-weight:300;font-size:14px;letter-spacing:.3em;text-transform:uppercase;line-height:1.4;color:var(--mauve);direction:ltr;text-align:right;margin-bottom:16px}
+.hero h1{font-family:var(--script);font-weight:400;font-size:clamp(58px,7.2vw,100px);line-height:1.02;direction:ltr;text-align:right;color:var(--ink)}
+.hero h1 em{display:block;font-style:normal;color:var(--mauve)}
+.lead{max-width:480px;text-align:right;text-wrap:balance;color:var(--muted);font-size:17px;line-height:2;margin-top:26px}
+.actions{display:flex;align-items:center;gap:26px;margin-top:34px}
+.btn{border:0;border-radius:100px;padding:15px 30px;display:inline-flex;gap:10px;align-items:center;transition:.3s;cursor:pointer;font-size:16px}
+.btn-main{background:var(--btn);color:#fff;border:1px solid var(--gold-light);box-shadow:0 12px 28px rgba(102,82,63,.24)}
+.btn-main:hover{background:var(--btn-hover)}
+.btn:hover{transform:translateY(-3px)}
+.simple-link{border-bottom:1.5px solid var(--gold);padding-bottom:5px}
+.signature-note{display:none;align-items:center;gap:14px;color:var(--muted);font-size:14px;margin-top:56px}
+.signature-note:after{content:"";width:56px;height:1px;background:var(--gold)}
+
+/* אזור התמונה בפתיח */
+.hero-art{position:relative;height:600px;direction:ltr}
+.frame{position:absolute;padding:2px;background:linear-gradient(135deg,var(--gold-light),var(--gold) 50%,var(--gold-light));box-shadow:0 24px 54px rgba(110,88,72,.16)}
+.arch{border-radius:999px 999px 26px 26px}
+.frame.main{left:14%;top:2%;width:68%;height:94%;z-index:3;border-radius:58% 42% 46% 54% / 38% 52% 48% 62%;animation:float 10s ease-in-out infinite,morph 14s ease-in-out infinite}
+.frame.main .ph{border-radius:inherit}
+.frame.main .ph{border-radius:inherit}
+.shape{position:absolute;pointer-events:none}
+.shape-fill{left:26%;top:9%;width:66%;height:88%;z-index:1;background:linear-gradient(160deg,var(--sand),var(--gold-light));opacity:.75;transform:rotate(9deg);border-radius:46% 54% 40% 60% / 56% 44% 56% 44%;animation:morph 16s ease-in-out -5s infinite reverse}
+.shape-outline{left:6%;top:7%;width:70%;height:90%;z-index:2;border:1px solid var(--gold);opacity:.7;transform:rotate(-7deg);border-radius:44% 56% 58% 42% / 52% 40% 60% 48%;animation:morph 18s ease-in-out -9s infinite}
+.badge{position:absolute;left:2%;bottom:6%;width:124px;height:124px;z-index:4;display:grid;place-items:center;background:var(--paper);border-radius:50%;box-shadow:0 12px 30px rgba(110,88,72,.14)}
+.badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 30s linear infinite}
+.badge text{font-family:var(--modern);font-weight:400;font-size:10px;letter-spacing:.2em;fill:var(--ink);text-transform:uppercase}
+.badge-dot{width:8px;height:8px;border-radius:50%;background:var(--mauve)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes morph{0%,100%{border-radius:58% 42% 46% 54% / 38% 52% 48% 62%}50%{border-radius:42% 58% 56% 44% / 54% 42% 58% 46%}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.frame,.shape,.badge svg{animation:none!important}html{scroll-behavior:auto}}
+
+
+/* ---------- STRIP ---------- */
+.strip{background:#EBE4D8;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--ink);padding:28px max(35px,calc((100vw - 1180px)/2));display:grid;grid-template-columns:auto 1fr;align-items:center;gap:50px}
+.strip-title{font-family:var(--script);font-weight:400;font-size:52px;line-height:1;direction:ltr;color:var(--mauve)}
+.strip p{font-size:16px;color:var(--muted);line-height:1.9}
+
+/* ---------- SECTIONS ---------- */
+.section{padding:130px 0;position:relative;isolation:isolate}
+.heading{display:flex;align-items:end;justify-content:space-between;margin-bottom:56px;gap:30px}
+.kicker2{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--mauve);margin-bottom:6px}
+.kicker2:before{content:"";width:26px;height:1px;background:var(--gold)}
+.center .kicker2{justify-content:center}
+h2{font-family:var(--script);font-weight:400;font-size:clamp(52px,6.2vw,82px);line-height:1.05;direction:ltr;text-align:right}
+h2 em{font-style:normal;color:var(--mauve)}
+.heading-text{color:var(--muted);font-size:15px;line-height:2;max-width:300px}
+
+/* ---------- GALLERY ---------- */
+.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:70px;gap:18px}
+.gallery-item{position:relative;overflow:hidden;border-radius:26px;cursor:pointer;box-shadow:0 14px 34px rgba(110,88,72,.14);transition:transform .35s,box-shadow .35s}
+.gallery-item:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(110,88,72,.22)}
+.g1{grid-column:1/5;grid-row:1/7}.g2{grid-column:5/9;grid-row:1/5}.g3{grid-column:9/13;grid-row:1/7}
+.g4{grid-column:5/9;grid-row:5/10}.g5{grid-column:1/5;grid-row:7/11}.g6{grid-column:9/13;grid-row:7/11}
+.g2 .ph{--c1:#E2DDD4;--c2:#BDA896;--c3:#F4F1EA}
+.g3 .ph{--c1:#BDA896;--c2:#F4F1EA;--c3:#A48D78}
+.g4 .ph{--c1:#F4F1EA;--c2:#CBB9A4;--c3:#A37E66}
+.g5 .ph{--c1:#BDA896;--c2:#E2DDD4;--c3:#BDA896}
+.g6 .ph{--c1:#E6DAC8;--c2:#A48D78;--c3:#F4F1EA}
+.gallery-item:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(36,27,24,.55));opacity:0;transition:.35s;pointer-events:none}
+.gallery-caption{position:absolute;left:20px;bottom:12px;z-index:2;color:#fff;font-family:var(--script);font-size:34px;direction:ltr;opacity:0;transform:translateY(10px);transition:.35s}
+.gallery-item:hover:after,.gallery-item:hover .gallery-caption{opacity:1}
+.gallery-item:hover .gallery-caption{transform:translateY(0)}
+.gallery-more{display:block;width:max-content;margin:56px auto 0;border-bottom:1.5px solid var(--gold);padding-bottom:5px}
+
+/* ---------- ABOUT ---------- */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:110px;align-items:center}
+.about-visual{height:600px;position:relative;padding:32px 32px 0 0}
+.about-photo{height:100%;border-radius:20px 130px 20px 20px;box-shadow:var(--shadow);position:relative;overflow:hidden;--c1:#BDA896;--c2:#E2DDD4;--c3:#BDA896}
+.about-photo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.about-outline{position:absolute;inset:0 0 28px 28px;border:1px solid var(--gold);border-radius:20px 130px 20px 20px;pointer-events:none}
+.stamp{position:absolute;left:-30px;bottom:38px;width:116px;height:116px;border-radius:50%;background:#8C7466;color:#fff;display:grid;place-items:center;text-align:center;font-family:var(--serif);font-size:16px;line-height:1;transform:rotate(-9deg);border:2px solid var(--gold-light)}
+.about-copy p{max-width:470px;color:var(--muted);font-size:17px;line-height:2.05;margin-top:22px}
+.sign{font-family:var(--script);font-size:46px;line-height:1;color:var(--mauve);margin-top:34px;direction:ltr;text-align:right}
+
+/* ---------- SERVICES ---------- */
+.services{padding-top:20px}
+.center{text-align:center;display:block}
+.center h2{text-align:center}
+.sub-title{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:50px;font-size:17px;color:var(--mauve)}
+.sub-title:before,.sub-title:after{content:"";width:44px;height:1px;background:var(--gold-light)}
+.amount{font-family:var(--modern);font-weight:200;direction:ltr;unicode-bidi:isolate;color:var(--ink);line-height:1.1;white-space:nowrap}
+.amount small{font-size:.5em;color:var(--mauve);margin-right:3px}
+
+/* שלוש רמות הלק ג׳ל, עם תמונה לכל אחת */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+.tier{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(250,249,246,.85);display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s,border-color .35s}
+.tier:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.tier-photo{height:230px;cursor:pointer;overflow:hidden}
+.tier-photo .ph{transition:transform .6s}
+.tier:hover .tier-photo .ph{transform:scale(1.05)}
+.tier-body{padding:22px 24px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;flex:1}
+.tier h3{font-family:var(--sans);font-weight:400;font-size:21px}
+.tier p{font-size:14px;color:var(--muted);line-height:1.8}
+.tier .amount{font-size:46px;margin-top:auto;padding-top:12px}
+
+.included{margin:26px auto 0;max-width:760px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 14px;padding:16px 26px;border:1px solid var(--gold-light);border-radius:100px;background:rgba(250,249,246,.6);font-size:15px;color:var(--muted)}
+.included b{font-weight:400;color:var(--mauve)}
+.included span{display:flex;align-items:center;gap:14px}
+.included span:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+/* שאר המחירון */
+.price-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+.group{border:1px solid var(--line);border-radius:24px;padding:28px 28px 24px;background:rgba(250,249,246,.7);transition:.35s}
+.group:hover{background:var(--greige3);border-color:transparent;transform:translateY(-4px)}
+.group h3{font-family:var(--sans);font-weight:400;font-size:20px;margin-bottom:10px}
+.row{display:flex;align-items:baseline;gap:12px;padding:7px 0;font-size:15px;color:var(--muted)}
+.row i{flex:1;min-width:16px;border-bottom:1px dotted var(--gold);transform:translateY(-4px)}
+.row .amount{font-size:26px;font-weight:300}
+.group-note{font-size:13px;color:var(--mauve);margin-top:10px}
+
+/* ---------- GOOD TO KNOW ---------- */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.info-card{border:1px solid var(--line);border-radius:24px;padding:34px 34px 30px;background:rgba(250,249,246,.75);transition:.35s}
+.info-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+.info-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.info-icon{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--gold-light);background:var(--paper);color:var(--mauve)}
+.info-icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.info-card h3{font-family:var(--sans);font-weight:400;font-size:21px}
+.info-card ul{list-style:none}
+.info-card li{position:relative;padding:6px 20px 6px 0;font-size:15.5px;color:var(--muted);line-height:1.85}
+.info-card li:before{content:"";position:absolute;right:0;top:19px;width:7px;height:1px;background:var(--gold)}
+.info-card p{font-size:15.5px;color:var(--muted);line-height:1.95}
+.info-card strong{font-weight:400;color:var(--ink)}
+.big-num{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.big-num b{font-family:var(--modern);font-weight:200;font-size:56px;line-height:1;color:var(--ink)}
+.big-num span{font-size:15px;color:var(--mauve)}
+.brand{display:flex;align-items:baseline;gap:14px;padding:10px 0}
+.brand+.brand{border-top:1px solid var(--line)}
+.brand b{flex:none;min-width:112px;font-family:var(--modern);font-weight:300;font-size:17px;letter-spacing:.14em;color:var(--ink);direction:ltr;text-align:right}
+.brand span{font-size:15px;color:var(--muted)}
+
+/* ---------- TESTIMONIALS + VIDEO ---------- */
+.reviews{padding-top:20px}
+.video-wrap{width:min(100%,340px);margin:0 auto 54px;padding:2px;border-radius:30px;background:linear-gradient(135deg,var(--gold-light),var(--gold) 50%,var(--gold-light));box-shadow:var(--shadow)}
+.video-wrap video{display:block;width:100%;max-height:600px;border-radius:28px;background:#2b211e}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+.review{position:relative;border:1px solid var(--line);border-radius:24px;padding:44px 28px 28px;background:rgba(250,249,246,.8);text-align:center}
+.review:before{content:"\201D";position:absolute;top:6px;right:0;left:0;font-family:var(--serif);font-size:64px;line-height:1;color:var(--gold-light)}
+.review p{font-size:15.5px;color:var(--muted);line-height:1.95}
+.review cite{display:block;margin-top:16px;font-style:normal;font-size:14px;color:var(--mauve)}
+
+/* ---------- PROMO ---------- */
+.promo{position:relative;overflow:hidden;margin-bottom:10px;border-radius:32px;padding:54px 40px;text-align:center;background:linear-gradient(135deg,#E6DAC8,#DDD3C5 50%,#CBB9A4);display:flex;flex-direction:column;align-items:center;gap:6px}
+.promo>*:not(.deco){position:relative;z-index:1}
+.promo .orbit{border-color:rgba(255,255,255,.7)}
+.promo .orbit:after{background:#fff}
+.promo-script{font-family:var(--script);font-size:clamp(46px,5.4vw,68px);line-height:1.05;direction:ltr;color:var(--ink)}
+.promo h3{font-family:var(--sans);font-weight:400;font-size:20px;color:var(--mauve)}
+.promo p{max-width:440px;font-size:16px;color:var(--muted);line-height:1.9}
+.promo .btn{margin-top:16px}
+
+/* ---------- QUOTE ---------- */
+.quote{position:relative;overflow:hidden;min-height:420px;background:linear-gradient(135deg,#E6DAC8,#DDD3C5 50%,#CBB9A4);color:var(--ink);display:grid;place-items:center;text-align:center;padding:60px 20px;direction:ltr}
+.quote>div:not(.deco){position:relative;z-index:2}
+.quote blockquote{font-family:var(--script);font-weight:400;font-size:clamp(40px,5.6vw,70px);line-height:1.15;max-width:900px}
+.quote em{font-style:normal;color:var(--mauve)}
+.quote small{display:block;margin-top:26px;font-family:var(--modern);font-weight:300;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- CONTACT ---------- */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:100px;align-items:start}
+.contact-copy p{max-width:390px;color:var(--muted);line-height:2;margin-top:26px;font-size:17px}
+.call-card{background:var(--paper);border-radius:28px;padding:48px 42px;box-shadow:var(--shadow);border:1px solid rgba(164,141,120,.25);display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
+.call-label{font-size:14px;color:var(--mauve)}
+.call-number{font-family:var(--modern);font-weight:200;font-size:clamp(34px,4.4vw,52px);letter-spacing:.02em;direction:ltr;line-height:1.2;color:var(--ink)}
+.call-card .btn{margin-top:16px}
+.call-note{font-size:14px;color:var(--muted);margin-top:6px}
+.place{width:100%;margin-top:22px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:2px}
+.place svg{width:22px;height:22px;fill:none;stroke:var(--mauve);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;margin-bottom:4px}
+.place b{font-weight:400;font-size:18px;color:var(--ink)}
+.place span{font-size:14px;color:var(--muted)}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);min-height:130px;display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:13px;color:var(--muted)}
+.footer-links{display:flex;gap:26px;font-size:14px}
+.mobile-cta{display:none}
+
+/* ---------- LIGHTBOX ---------- */
+.lightbox{position:fixed;inset:0;background:rgba(35,28,25,.92);z-index:100;display:none;place-items:center;padding:30px}
+.lightbox.open{display:grid}
+.lightbox-box{width:min(850px,94vw);height:min(780px,88vh);border-radius:24px;position:relative;overflow:hidden;
+  background-color:#2b211e;
+  background-image:var(--img,none),linear-gradient(135deg,#A48D78,#E2DDD4,#A37E66);
+  background-size:contain,cover;background-position:center;background-repeat:no-repeat;box-shadow:0 30px 100px rgba(0,0,0,.5)}
+.close{position:absolute;top:18px;left:20px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.35);color:#fff;font-size:24px;cursor:pointer;z-index:2}
+
+
+/* ---------- DECOR (עדין, מודרני) ---------- */
+main{overflow-x:clip}
+.section,.quote{position:relative}
+.section>*:not(.deco){position:relative;z-index:1}
+.deco{position:absolute;pointer-events:none;z-index:0}
+.orb{border-radius:50%;filter:blur(34px);background:radial-gradient(circle,rgba(203,185,164,.5),transparent 68%)}
+.orb.soft{background:radial-gradient(circle,rgba(230,218,200,.9),transparent 68%)}
+.orbit{border-radius:50%;border:1px solid rgba(164,141,120,.42)}
+.orbit:after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:var(--gold);top:calc(14.6% - 4px);left:calc(14.6% - 4px)}
+.orbit.ring2{border-style:dashed;border-color:rgba(164,141,120,.3)}
+.orbit.ring2:after{display:none}
+.plus{width:18px;height:18px;opacity:.75;background:linear-gradient(var(--gold),var(--gold)) center/100% 1px no-repeat,linear-gradient(var(--gold),var(--gold)) center/1px 100% no-repeat}
+.dots{width:110px;height:110px;opacity:.5;background-image:radial-gradient(circle,var(--gold) 1.2px,transparent 1.6px);background-size:16px 16px;-webkit-mask-image:radial-gradient(circle,#000 20%,transparent 72%);mask-image:radial-gradient(circle,#000 20%,transparent 72%)}
+.quote .orbit{border-color:rgba(255,255,255,.7)}
+.quote .orbit:after{background:#fff}
+.quote .plus{background:linear-gradient(#fff,#fff) center/100% 1px no-repeat,linear-gradient(#fff,#fff) center/1px 100% no-repeat}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .dots,.orbit.ring2{display:none}
+  .orbit{transform:scale(.7)}
+  .page{width:min(100% - 34px,650px)}
+  header{height:auto;min-height:76px;padding:8px 0}
+  .top-cta{display:none}
+  .menu{display:flex;flex-direction:column;gap:6px}
+  .menu i{display:block;width:26px;height:1.5px;background:var(--ink)}
+  nav{display:none;position:absolute;top:76px;right:0;left:0;flex-direction:column;gap:6px;background:var(--paper);padding:14px 24px 20px;border-radius:0 0 22px 22px;box-shadow:var(--shadow)}
+  nav.open{display:flex}
+  nav a{padding:10px 0;font-size:17px}
+  .hero{display:flex;flex-direction:column-reverse;gap:10px;text-align:center;padding:30px 0 75px;min-height:auto}
+  .hero-copy{align-items:center}
+  .hero-copy,.kicker,.hero h1,.lead{text-align:center}
+  .lead{margin:22px auto 0}
+  .actions{justify-content:center}
+  .signature-note{justify-content:center;margin-top:34px}
+  .signature-note:after{display:none}
+  .hero-art{width:100%;height:440px}
+  .badge{width:96px;height:96px}
+  .badge text{font-size:8px}
+  .strip{grid-template-columns:1fr;gap:6px;padding:28px 24px;text-align:center}
+  .section{padding:90px 0}
+  .heading{display:block}
+  .heading-text{margin-top:20px}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px;gap:10px}
+  .g1{grid-column:1/2;grid-row:1/3}.g2{grid-column:2/3;grid-row:1/2}.g3{grid-column:2/3;grid-row:2/4}
+  .g4{grid-column:1/2;grid-row:3/5}.g5{grid-column:1/2;grid-row:5/7}.g6{grid-column:2/3;grid-row:4/6}
+  .gallery-caption{opacity:1;transform:none;font-size:24px}
+  .gallery-item:after{opacity:1}
+  .about,.contact{grid-template-columns:1fr;gap:60px}
+  .about-visual{height:500px}
+  .tiers,.price-groups,.info-grid,.review-grid{grid-template-columns:1fr}
+  .tier-photo{height:250px}
+  .included{border-radius:26px;padding:18px 20px}
+  .info-card{padding:28px 24px 24px}
+  .promo{padding:44px 24px;border-radius:26px}
+  .contact{padding-top:70px}
+  .call-card{padding:34px 22px}
+  footer{width:min(100% - 34px,650px);flex-wrap:wrap;justify-content:center;gap:20px;padding:30px 0 90px;text-align:center}
+  .mobile-cta{display:flex;position:fixed;z-index:50;bottom:14px;left:14px;right:14px;background:rgba(102,82,63,.95);color:#fff;border-radius:100px;justify-content:center;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+}
+@media(max-width:520px){
+  .hero h1{font-size:44px}
+  .hero-art{height:380px}
+  h2{font-size:42px}
+  .about-visual{height:420px}
+  .about-photo,.about-outline{border-radius:16px 80px 16px 16px}
+  .stamp{left:-8px}
+}
+</style>
+</head>
+<body>
+
+<header class="page">
+  <a class="logo" href="#home"><span class="logo-main">Malki</span><span class="logo-sub">עיצוב ציפורניים</span></a>
+  <nav id="nav">
+    <a class="active" href="#home">בית</a>
+    <a href="#gallery">גלריה</a>
+    <a href="#about">עליי</a>
+    <a href="#services">מחירון</a>
+    <a href="#info">טוב לדעת</a>
+    <a href="#reviews">המלצות</a>
+  </nav>
+  <a class="top-cta" href="#contact">קביעת תור</a>
+  <button class="menu" id="menuBtn" aria-label="תפריט"><i></i><i></i></button>
+</header>
+
+<main>
+
+<!-- ===================== HERO ===================== -->
+<div class="hero-wrap" id="home">
+  <div class="deco orb" style="top:-140px;right:-90px;width:480px;height:480px"></div>
+  <div class="deco orb soft" style="bottom:-180px;left:-140px;width:440px;height:440px"></div>
+  <div class="deco orbit" style="top:36px;left:53%;width:130px;height:130px"></div>
+  <div class="deco orbit ring2" style="bottom:-120px;right:-60px;width:360px;height:360px"></div>
+  <div class="deco plus" style="top:130px;left:7%"></div>
+  <div class="deco plus" style="bottom:110px;right:6%"></div>
+  <div class="deco dots" style="bottom:70px;left:3%"></div>
+
+  <section class="page hero">
+    <div class="hero-copy">
+      <div class="kicker">Exquisite nail artistry</div>
+      <h1>Beauty lives<em>at your fingertips</em></h1>
+      <p class="lead">עיצוב ציפורניים מדויק, נשי ואלגנטי, עם תשומת לב לכל פרט קטן.</p>
+      <div class="actions">
+        <a class="btn btn-main" href="#gallery">לגלריית העבודות ←</a>
+        <a class="simple-link" href="#contact">בואי נדבר</a>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="shape shape-fill"></div>
+      <div class="shape shape-outline"></div>
+
+      <!-- תמונת הפתיח: images/hero.jpg -->
+      <div class="frame main"><div class="ph" style="--img:url('images/hero.jpg');--c1:#DDD3C5;--c2:#F4F1EA;--c3:#AA9F8E"></div></div>
+
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 124 124"><defs><path id="circ" d="M62,62 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#circ">HANDCRAFTED • PRECISE • YOURS • </textPath></text></svg>
+        <span class="badge-dot"></span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="strip">
+  <div class="strip-title">Your style</div>
+  <p>מניקור שנבנה סביבך, מהצבע ועד הפרטים הקטנים.</p>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="page section" id="gallery">
+  <div class="deco orb" style="top:-40px;left:-200px;width:440px;height:440px"></div>
+  <div class="deco orbit" style="top:34px;right:-60px;width:170px;height:170px"></div>
+  <div class="deco plus" style="top:96px;right:36%"></div>
+  <div class="heading">
+    <div><div class="kicker2">העבודות שלי</div><h2>My work</h2></div>
+    <p class="heading-text">אוסף קטן מהעיצובים שיצאו מהידיים שלי.<br>כל סט הוא קצת אחר.</p>
+  </div>
+  <!-- תמונות הגלריה: images/1.jpg עד images/6.jpg -->
+  <div class="gallery-grid">
+    <div class="gallery-item g1" data-lightbox><div class="ph" style="--img:url('images/1.jpg');--pos:center 30%"></div><div class="gallery-caption">Lemon french</div></div>
+    <div class="gallery-item g2" data-lightbox><div class="ph" style="--img:url('images/2.jpg');--pos:66% 50%"></div><div class="gallery-caption">Blossom</div></div>
+    <div class="gallery-item g3" data-lightbox><div class="ph" style="--img:url('images/3.jpg');--pos:center 12%"></div><div class="gallery-caption">Sunny tips</div></div>
+    <div class="gallery-item g4" data-lightbox><div class="ph" style="--img:url('images/4.jpg')"></div><div class="gallery-caption">On fire</div></div>
+    <div class="gallery-item g5" data-lightbox><div class="ph" style="--img:url('images/5.jpg');--pos:center 60%"></div><div class="gallery-caption">Playful</div></div>
+    <div class="gallery-item g6" data-lightbox><div class="ph" style="--img:url('images/6.jpg');--pos:center 55%"></div><div class="gallery-caption">Bold details</div></div>
+  </div>
+  <a class="gallery-more" href="#contact">רוצה לראות עוד?</a>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="page section about" id="about">
+  <div class="deco orb soft" style="top:-60px;right:-220px;width:460px;height:460px"></div>
+  <div class="deco orbit ring2" style="bottom:-90px;left:-120px;width:300px;height:300px"></div>
+  <div class="deco plus" style="top:40px;left:46%"></div>
+  <div class="about-visual">
+    <!-- סרטון רקע (בלי סאונד): images/about.mp4. התמונה images/about.jpg מוצגת עד שהסרטון נטען -->
+    <div class="about-photo"><div class="ph" style="--img:url('images/about.jpg');--pos:center 62%;--c1:#BDA896;--c2:#E2DDD4;--c3:#BDA896"></div><video autoplay muted loop playsinline preload="auto" poster="images/about.jpg" aria-hidden="true"><source src="images/about.mp4" type="video/mp4"></video></div>
+    <div class="about-outline"></div>
+    <div class="stamp">NAIL<br>ART<br>STUDIO</div>
+  </div>
+  <div class="about-copy">
+    <div class="kicker2">קצת עליי</div>
+    <h2>Small, precise,<br><em>yours.</em></h2>
+    <p>אני מאמינה שמניקור טוב הוא לא רק צבע יפה, אלא התחושה שמקבלים כשמסתכלים על הידיים ומחייכים.</p>
+    <p>לכן כל עיצוב מתחיל בהקשבה למה שאת אוהבת, וממשיך בדיוק, בסבלנות ובאהבה לפרטים.</p>
+    <div class="sign">with love, Malki</div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="page section services" id="services">
+  <div class="deco orb" style="top:30px;left:-200px;width:420px;height:420px"></div>
+  <div class="deco orbit" style="top:-10px;right:-50px;width:150px;height:150px"></div>
+  <div class="deco plus" style="bottom:36px;left:6%"></div>
+  <div class="heading center"><div class="kicker2">מחירון</div><h2>What awaits you</h2></div>
+
+  <div class="sub-title">לק ג׳ל</div>
+  <!-- תמונות המחירון: images/gel-classic.jpg, gel-art.jpg, gel-disney.jpg -->
+  <div class="tiers">
+    <article class="tier">
+      <div class="tier-photo" data-lightbox><div class="ph" style="--img:url('images/gel-classic.jpg');--pos:center 20%"></div></div>
+      <div class="tier-body"><h3>ג׳ל רגיל</h3><p>צבע אחיד, נקי ומדויק.</p><span class="amount"><small>₪</small>130</span></div>
+    </article>
+    <article class="tier">
+      <div class="tier-photo" data-lightbox><div class="ph" style="--img:url('images/gel-art.jpg');--pos:center 42%"></div></div>
+      <div class="tier-body"><h3>ג׳ל עם ציור בסיסי</h3><p>נקודות, פרנץ׳ או טאץ׳ עדין.</p><span class="amount"><small>₪</small>140</span></div>
+    </article>
+    <article class="tier">
+      <div class="tier-photo" data-lightbox><div class="ph" style="--img:url('images/gel-disney.jpg');--pos:center 60%"></div></div>
+      <div class="tier-body"><h3>ציור מורכב או דיסני</h3><p>דמויות ועיצובים מושקעים בעבודת יד.</p><span class="amount"><small>₪</small>170</span></div>
+    </article>
+  </div>
+  <div class="included"><b>כלול במחיר</b><span>בנייה אנטומית</span><span>מניקור ופדיקור מקצועי</span><span>קופונים</span></div>
+
+  <div class="sub-title">עוד בסטודיו</div>
+  <div class="price-groups">
+    <article class="group">
+      <h3>בניית ציפורניים</h3>
+      <div class="row"><span>ארוכה</span><i></i><span class="amount"><small>₪</small>260</span></div>
+      <div class="row"><span>ארוכה מאוד</span><i></i><span class="amount"><small>₪</small>320</span></div>
+    </article>
+    <article class="group">
+      <h3> פדיקור רוסי ברגליים</h3>
+      <div class="row"><span>בסיס</span><i></i><span class="amount"><small>₪</small>150</span></div>
+      <div class="row"><span>עם ציור</span><i></i><span class="amount"><small>₪</small>160</span></div>
+    </article>
+    <article class="group">
+      <h3>הורדת ג׳ל</h3>
+      <div class="row"><span>ג׳ל שנעשה אצלי</span><i></i><span class="amount"><small>₪</small>20</span></div>
+      <div class="row"><span>ג׳ל שנעשה במקום אחר</span><i></i><span class="amount"><small>₪</small>40</span></div>
+      <p class="group-note">בתיאום תור שלושה ימים מראש.</p>
+    </article>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="deco orbit" style="top:-90px;left:7%;width:260px;height:260px"></div>
+  <div class="deco orbit ring2" style="bottom:-140px;right:5%;width:340px;height:340px;border-color:rgba(255,255,255,.55)"></div>
+  <div class="deco plus" style="top:70px;right:16%"></div>
+  <div class="deco plus" style="bottom:80px;left:18%"></div>
+  <div>
+    <blockquote>Elegance is not about being noticed,<br><em>it's about being remembered.</em></blockquote>
+    <small>Malki Nails</small>
+  </div>
+</section>
+
+<!-- ===================== GOOD TO KNOW ===================== -->
+<section class="page section" id="info">
+  <div class="deco orb soft" style="top:-20px;right:-220px;width:460px;height:460px"></div>
+  <div class="deco orbit" style="bottom:-50px;left:-80px;width:160px;height:160px"></div>
+  <div class="deco plus" style="top:90px;left:38%"></div>
+  <div class="heading">
+    <div><div class="kicker2">טוב לדעת</div><h2>Good to <em>know</em></h2></div>
+    <p class="heading-text">כמה דברים קטנים שעוזרים לציפורניים להישאר מושלמות, ולנו להיפגש בנחת.</p>
+  </div>
+  <div class="info-grid">
+    <article class="info-card">
+      <div class="info-head">
+        <span class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 3.5c3 3.6 5.5 6.600 5.500 10a5.500 5.500 0 0 1-11 0c0-3.400 2.500-6.400 5.500-10z"/><path d="M9.500 14a2.500 2.500 0 0 0 2.500 2.500"/></svg></span>
+        <h3>שמירה על הציפורניים</h3>
+      </div>
+      <ul>
+        <li>לא עובדים עם חומרים חריפים כמו אקונומיקה בלי כפפות.</li>
+        <li>מנקים רק עם כפפות.</li>
+        <li>נמנעים מפעולות גסות עם הציפורניים.</li>
+      </ul>
+    </article>
+    <article class="info-card">
+      <div class="info-head">
+        <span class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 2.800v5.200c0 4.300-2.900 7.700-7 9.500-4.100-1.800-7-5.200-7-9.500V5.800z"/><path d="M9 12l2.200 2.200L15.200 10"/></svg></span>
+        <h3>אחריות</h3>
+      </div>
+      <div class="big-num"><b>14</b><span>ימי אחריות</span></div>
+      <p>במשך שבועיים מגיע לך <strong>שירות חוזר בחינם</strong> על נפילה או קילוף שנובעים מהחומר, ולא מחוסר זהירות.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-head">
+        <span class="info-icon"><svg viewBox="0 0 24 24"><rect x="4" y="5.500" width="16" height="14.500" rx="2.500"/><path d="M4 10h16M8.500 3.500v4M15.500 3.500v4"/></svg></span>
+        <h3>תורים</h3>
+      </div>
+      <ul>
+        <li>קובעים תור <strong>לפחות שלושה ימים מראש</strong>.</li>
+        <li>בחגים ובבין הזמנים, <strong>לפחות שבוע מראש</strong>.</li>
+        <li>להורדת ג׳ל קובעים תור שלושה ימים מראש.</li>
+        <li>אין ביטול תור באותו היום.</li>
+        <li>מגיעים בדיוק בזמן.</li>
+      </ul>
+    </article>
+    <article class="info-card">
+      <div class="info-head">
+        <span class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 4l1.700 4.600L18.500 10l-4.800 1.400L12 16l-1.700-4.600L5.500 10l4.800-1.400z"/><path d="M18 16.500v3M16.500 18h3"/></svg></span>
+        <h3>החומרים שלי</h3>
+      </div>
+      <p>אני עובדת רק עם חברות שאני סומכת עליהן.</p>
+      <div class="brand"><b>KOYO-BELL</b><span>חברה איכותית ומקצועית.</span></div>
+      <div class="brand"><b>BUBA</b><span>מתאימה גם לבעלות אלרגיה.</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS + VIDEO ===================== -->
+<section class="page section reviews" id="reviews">
+  <div class="deco orb" style="top:20px;left:-200px;width:420px;height:420px"></div>
+  <div class="deco orbit ring2" style="top:-40px;right:-90px;width:260px;height:260px"></div>
+  <div class="deco plus" style="bottom:50px;right:8%"></div>
+  <div class="heading center"><div class="kicker2">לקוחות מספרות</div><h2>Kind <em>words</em></h2></div>
+
+  <!-- סרטון: שימי קובץ בשם images/video.mp4 והוא יופיע כאן אוטומטית. בלי קובץ, האזור נשאר מוסתר -->
+  <div class="video-wrap" id="videoWrap" hidden>
+    <video controls playsinline preload="metadata"><source src="images/video.mp4" type="video/mp4"></video>
+  </div>
+
+  <!-- TODO: להחליף בהמלצות אמיתיות של לקוחות (טקסט + שם) -->
+  <div class="review-grid">
+    <blockquote class="review"><p>כאן תופיע המלצה של לקוחה.</p><cite>שם הלקוחה</cite></blockquote>
+    <blockquote class="review"><p>כאן תופיע המלצה של לקוחה.</p><cite>שם הלקוחה</cite></blockquote>
+    <blockquote class="review"><p>כאן תופיע המלצה של לקוחה.</p><cite>שם הלקוחה</cite></blockquote>
+  </div>
+</section>
+
+<!-- ===================== PROMO ===================== -->
+<section class="page">
+  <div class="promo">
+    <div class="deco orbit" style="top:-80px;left:-40px;width:220px;height:220px"></div>
+    <div class="deco orbit ring2" style="bottom:-130px;right:-60px;width:300px;height:300px;border-color:rgba(255,255,255,.55)"></div>
+    <div class="promo-script">Bring a friend</div>
+    <h3>מבצע חברה מביאה חברה</h3>
+    <!-- TODO: להוסיף כאן את פרטי המבצע (מה מקבלת הלקוחה ומה מקבלת החברה) -->
+    <p>כל הפרטים על המבצע אצלי, בטלפון.</p>
+    <a class="btn btn-main" href="tel:+972583228347">לפרטים על המבצע</a>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="page section contact" id="contact">
+  <div class="deco orb soft" style="top:-30px;right:-200px;width:440px;height:440px"></div>
+  <div class="deco orbit" style="bottom:-40px;left:-70px;width:180px;height:180px"></div>
+  <div class="deco plus" style="top:60px;left:44%"></div>
+  <div class="contact-copy">
+    <div class="kicker2">יצירת קשר</div>
+    <h2>Ready for your<br><em>next set?</em></h2>
+    <p>התקשרי אליי ונמצא יחד את העיצוב שהכי מתאים לך.</p>
+  </div>
+  <div class="call-card">
+    <div class="call-label">לקביעת תור</div>
+    <a class="call-number" href="tel:+972583228347">058-322-8347</a>
+    <a class="btn btn-main" href="tel:+972583228347">התקשרי עכשיו</a>
+    <p class="call-note">תורים נקבעים לפחות שלושה ימים מראש</p>
+    <div class="place">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-6.500-5.800-6.500-11a6.500 6.500 0 0 1 13 0c0 5.200-6.500 11-6.500 11z"/><circle cx="12" cy="10" r="2.300"/></svg>
+      <b>הר נוף, ירושלים</b>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="page">
+  <div class="logo"><span class="logo-main">Malki</span><span class="logo-sub">עיצוב ציפורניים</span></div>
+  <p>הר נוף, ירושלים ✦ נוצר באהבה</p>
+  <div class="footer-links"><a href="#home">בית</a><a href="#gallery">גלריה</a><a href="#services">מחירון</a><a href="#contact">יצירת קשר</a></div>
+</footer>
+
+<a class="mobile-cta" href="tel:+972583228347">התקשרי לקביעת תור</a>
+
+<div class="lightbox" id="lightbox"><div class="lightbox-box" id="lightboxBox"><button class="close" aria-label="סגירה">×</button></div></div>
+
+<script>
+// תפריט במובייל
+const nav = document.getElementById('nav');
+document.getElementById('menuBtn').addEventListener('click', () => nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+// הגדלת תמונה בגלריה
+const lightbox = document.getElementById('lightbox');
+const box = document.getElementById('lightboxBox');
+document.querySelectorAll('[data-lightbox]').forEach(item => {
+  item.addEventListener('click', () => {
+    const img = item.querySelector('.ph').style.getPropertyValue('--img');
+    box.style.setProperty('--img', img);
+    lightbox.classList.add('open');
+  });
+});
+document.querySelector('.close').addEventListener('click', () => lightbox.classList.remove('open'));
+lightbox.addEventListener('click', e => { if (e.target.id === 'lightbox') lightbox.classList.remove('open'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+// הסרטון מוצג רק אם הקובץ images/video.mp4 קיים
+const videoWrap = document.getElementById('videoWrap');
+videoWrap.querySelector('video').addEventListener('loadedmetadata', () => videoWrap.hidden = false);
+
+</script>
+</body>
+</html>
